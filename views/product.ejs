@@ -1,0 +1,45 @@
+<% layout('layout/boilerplate.ejs') %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 offset-md-3">
+
+       
+    <div class="card shadow">
+        <div class="card-body">
+            <h2 class="text-center">NEW PRODUCT</h2>
+            <form action="/products" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="formFileSm" class="form-label">IMAGE OF PRODUCT</label>
+                    <input class="form-control form-control-sm" name="image" id="formFileSm" type="file" multiple required>
+                  </div>
+            
+               <div class="mb-3">
+                   <label for="name" class="form-label">PRODUCT NAME</label>
+                   <input class="form-control" name="product[name]" type="text" required>
+               </div>
+               <div class="mb-3">
+                   <label for="desc" class="form-label">Desc</label>
+                   <input type="text" class="form-control" name="product[desc]" required id="desc">
+               </div>
+               <div class="mb-3">
+                   <label for="price" class="form-label">PRICE</label>
+                   <input type="number" class="form-control" name="product[price]" id="price" required>
+               </div>
+               <div class="mb-3">
+                <label for="sprice" class="form-label">STRIKE OUT PRICE</label>
+                <input type="number" class="form-control" name="product[sprice]" id="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">RATING</label>
+                <input type="number" class="form-control" name="product[rating]" id="rating" required>
+            </div>
+               <div class="d-grid gap-2">
+                <button class="btn btn-success">CREATE PRODUCT</button>
+            </div>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+

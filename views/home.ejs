@@ -1,0 +1,57 @@
+
+<% layout('layout/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/home.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="bdy">
+    <div class="sec1">
+        <img src="/assets/home.png" class="img">
+        <p class="brand">Snack &nbsp; & &nbsp; Break</p>
+        <a class="cart display-6 text-center" href="/cart"><i class="fa cart1 fa-shopping-cart"></i><a>
+        <p class="heading">Delicious<br>Snacks Is Waiting<br>for you</p>
+        <img src="/assets/image (2).png" class="img1">
+    </div>
+    <div class="product">
+        <br>
+        <p class="prd">We have Delicious Snack for this Evening</p><br>
+        <div class="prdsub">
+            <div class="container">
+                <div class="row d-flex justify-content-center my-5">
+                    <% for(let p of product){ %> 
+                    <div class="col-md-3 col-sm-6 d-flex align-items-center">
+                        <div class="product-grid3">
+                            <div class="product-image3">
+                                <a href="#">
+                                    <img class="pic-1 img-fluid" src="<%=p.image[0].url%>">
+                                    <img class="pic-2 img-fluid" src="<%=p.image[1].url%>">
+                                </a>
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="/products/<%=p._id%>"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                                <span class="product-new-label">New</span>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title text-white"><%=p.name%></h3>
+                                <div class="price">
+                                    <%=p.price%>
+                                    <span><%=p.sprice%></span>
+                                </div>
+                                <ul class="rating">
+                                   
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star "></li>
+                                    <li class="fa fa-star disable"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+                  
+        </div>
+    </div>
+</div>
+</div>
+</div>

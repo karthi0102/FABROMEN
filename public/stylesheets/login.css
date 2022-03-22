@@ -1,0 +1,132 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px)  {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+span  a{
+    color: aqua;
+    text-decoration: none;
+}
+span{
+    color:lightgoldenrodyellow;
+}
+main{ 
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: left;
+      display: flex;
+      justify-content: start;
+   background-color:rgb(8, 8, 8);
+  background-position: center center;
+ object-fit: cover;
+   
+  }
+.bg-signup{
+    background: url('../assets/background.jpg');
+  background-size:100%; 
+  border-radius: 40px; 
+  background-position: left;
+ 
+  max-height:40%;    
+  padding-top: 40%;
+  padding-bottom: 0%;
+  object-position: top;
+  margin:0%;
+  
+  }
+  .image1{
+      position: fixed;
+  display: flex;
+  justify-content: start;
+    height: 550px;
+    padding-top: 70px;
+    margin-left: 0px;
+  
+  }
+  
+  .sign-up {
+      background: rgba(0,0,0,0.8);
+    }
+    
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      .sign-up {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+    }
+  
+  .image2{
+      position: fixed;
+      top: 5px;
+      bottom:10px;
+      left: 1000px;
+    bottom: 5px;
+    width:300px ;
+       
+       
+  
+  }
+  
+  .sign-up{
+      position: relative;
+      left:230px;
+    width: 500px;
+    box-shadow: 2px 2px 3px 0;
+    border-radius: 30px;;
+    background:wheat;
+    background: rgba(243, 131, 57, 0.3);
+    padding: 25px;
+    margin:3% auto 0
+  }
+  .sign-up h1{
+    color:rgb(96, 96, 226);
+    margin-bottom: 30px ;
+    
+  }
+  .input-box{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    width:100%;
+    border: 1px wheat;
+  
+  }
+  .sign-btn{
+    color:#fff;
+    width:100%;
+    border-radius: 20px;
+    font-size: 15px;
+  
+    margin:10px 0;
+  cursor: pointer;
+  outline:none;
+  border: none;
+  }
+  .sign-btn{
+    background-color:darksalmon;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 8px;
+  }  
+  .sss{
+      padding-top: 30px;
+     color:whitesmoke !important ;
+      font-family: 'Lakki Reddy', cursive;
+      font-size: 40px;
+      text-align: center;
+  }

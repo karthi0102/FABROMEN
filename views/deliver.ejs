@@ -1,0 +1,41 @@
+<% layout('layout/boilerplate.ejs') %>
+    <style>
+        body{
+            background-color: #000;
+        }
+        #design{
+            display: block;
+        }
+        @media only screen and (max-width: 670px) {
+        #design {
+          display:none;
+        }
+      }
+    </style>
+
+    <img src="/assets/home.png" id="design" alt="" height="400px" class="m-4" style="position: absolute; z-index: -3;">
+    <div class="text-end container">
+        <img src="/assets/logo.jpeg"  height="250cm"  style="border-radius: 15%;" class="mt-5 me-5">
+    </div>
+    <div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+      <% for(let o of order){ %>
+        <div class="col-md-3 py-3">
+        <div class="card text-light mb-3 text-center mx-auto" style="max-width: 16rem; background-color: rgb(78, 77, 77); border-radius: 8%;">
+            <div class="card-body">
+              <h5 class="card-title"><%= o.customer.username%> </h5>
+              <p class="card-text">
+                  <address>
+                     <%=o.customer.address  %> 
+                  </address>
+              </p>
+              <p><%= o.customer.orders.length  %> PRODCUTS</p>
+              <a href="/delivery/<%=o.customer._id%>/<%=o._id%>" class="btn btn-light"  >Accept</a>
+            </div>
+          </div>
+        </div>
+        <% } %> 
+       
+    </div>
+    </div>
+   

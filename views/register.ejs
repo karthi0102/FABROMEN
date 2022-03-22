@@ -1,0 +1,38 @@
+<% layout('layout/boilerplate.ejs') %>
+<style>
+   .card{
+    background-color:rgba(243, 131, 57, 0.3);
+    border-radius: 35px;
+  }
+  @media (max-width:1000px) {
+    .card{
+     margin-top: 100px !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="/stylesheets/login.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Lakki+Reddy&family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+<div class="container main my-5">
+   <img class="image1 d-none d-lg-block" src="/assets/Shopping.png" alt="" srcset="" >
+<div class="row my-3">
+   <div class="col-sm-12 col-lg-5 offset-lg-6">
+      <div class="card">
+         <div class="card-body">
+            <div class="bg-signup"></div>
+       
+     <h1 class="text-center text-white my-2">REGISTER</h1>
+     <form action="/register" method="post">
+         <input type="text" placeholder="Enter your Name" name="username" class="input-box" required>
+     <input type="email" class="input-box" placeholder="Enter your mail-id" name="email" required>
+     <input type="tel" name="phone" class="input-box" placeholder="Enter Phone No" name="phone" required>
+       <input type="password" class="input-box" placeholder="Enter your Password" name="password" required>
+        <button type="submit" class='sign-btn' >Sign up</button>      
+        <span class="mx-5">Already have an Account? <a class="mx-3" href="/login">Sign In</a> </span>
+     </form>
+   </div>
+</div>
+</div>
+</div>
+</div>

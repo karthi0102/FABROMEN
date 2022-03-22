@@ -1,0 +1,92 @@
+<% layout('layout/boilerplate.ejs') %>
+    <style>
+        body{
+            background-color: #000;
+        }
+        #highlight{
+            color:#dc661f;
+        }
+    </style>
+
+    <div class="container text-light my-5 text-center">
+      <div class="container">
+        <h1 id="highlight" ><%= user.username %> </h1>
+        <address class="h4">
+         <%= user.address %> 
+        </address>
+        <h4>
+          Total Prize: <b class="total-price"> </b> <br />
+          Number of Items: <b><%= user.orders.length  %> </b>
+        </h4>
+      </div>
+    </div>
+
+    <!-- Product Card -->
+<% for(let o of user.orders){ %> 
+    <div class="container mt-5">
+      <div class="card mb-3 bg-dark text-light mx-auto text-center" style="width:50%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="<%= o.image[0].url  %> "
+              class="rounded-start"
+              width="100%"
+              height="150px"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%=o.name  %> </h5>
+              <h6>₹  <%= o.price  %> </h6>
+            <h6><%= o.desc  %> </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %> 
+      
+
+    <!-- PIN BOX -->
+
+    <div class="container text-light text-center mt-5">
+      <div
+        class="card text-light mb-3 text-center mx-auto"
+        style="
+          max-width: 80%;
+          background-color: rgb(78, 77, 77);
+          border-radius: 5%;
+        "
+      >
+        <div class="card-body">
+          <form action="/verify/<%=user._id%>/<%=orderId%>?_method=DELETE" method="post">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" id="highlight" class="form-label fs-3 fw-bold my-3"
+                >Enter PIN To verify order</label
+              >
+              <input
+                type="number"
+                class="form-control" 
+                name="otp"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <button  class="btn btn-outline-light my-3">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+ <script>
+   const product = <%-JSON.stringify(user.orders)%>;
+const user=<%-JSON.stringify(user)%>;
+const otp=user.otp
+const amount = document.querySelector('.total-price')
+let sum=0;
+        for(let p of product){
+                sum+=p.price
+            }
+    
+amount.textContent=sum
+
+ </script>

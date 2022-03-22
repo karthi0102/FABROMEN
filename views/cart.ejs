@@ -1,0 +1,175 @@
+<% layout('layout/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/star.css">
+<style>
+    
+    .card{
+        background-color: rgba(255,255,255,0.5);
+    }
+    
+    #container{
+   height: 100px;
+    width:90%;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#container div{
+    height: 50px;
+    width: 50px;
+    background-color:black;
+    color: white;
+    padding-top: 10px;
+   text-align: center;
+   
+}
+    
+</style>
+<link rel="stylesheet" href="/stylesheets/order.css">
+<h1 class="text-center text-white my-5 display-3">SHOPPING CART</h1>
+<div class="orders">
+
+    <%if(user.orders.length==0){  %> 
+
+            <p class="text-white text-center" style="font-size: 25px;">LET'S START SHOPPING !!</p>
+            <p class="text-center text-white">HAVE A LOOK AT OUR AMAZING PRODUCTS AND ASTONISHING DISCOUNTS 🤩🤩</p>
+    <% }else{ %> 
+
+<div class="container mb-5">
+   
+    <% if(user.display==0){ %> 
+        <div class="container">
+           <% for(let order of user.orders){ %> 
+            
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row">
+
+                    
+                        <div class="col-md-4">
+                            <img src="<%= order.image[0].url %>" height="250px" width="100%" alt="">
+                        </div>
+                        <div class="col-md-8">
+                                <div class="text-center text-white mt-3">
+                                        <h2><%= order.name  %></h2>
+                                        <h4> <%= order.desc  %> </h4>
+                                        <h4>₹<%= order.price  %> </h4>
+                                        <br>
+                                        <a href="/remove/<%=order._id%>" style="text-decoration: none;" class="product-remove">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            <span class="remove">Remove</span>
+                                        </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+           <% } %> 
+        
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form action="/order" method="post">
+                            <div class="row">
+                                <div class=" col-10 mt-3">
+                                    <input type="text" name="address" class="form-control" value="<%=user.address%>" placeholder="Enter your delivery address">
+                                </div>
+                                <div class="col-1">
+                                    <button class="btn btn-info mt-4">+</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="col-md-4 offset-md-1 text-center text-white my-auto mt-3">
+                        <h4>TOTAL AMOUNT: ₹ <span class="total-price text-white"></span></h4>
+                    </div>
+                    <div class="col-md-3 text-end mt-5 ">
+                        <a href="/buy" class="text-end btn btn-success" style="text-decoration: none;">ORDER NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+           </div>
+        </div>
+        </div>
+  
+    <% }else{ %> 
+        <div class="container">
+<div class="row d-flex justify-content-center mb-3">
+    <h4 class="text-center text-white display-4">OTP</h4>
+    <div class="col-lg-8">
+
+        <section id="container">
+            <div class="div1"> </div>
+            <div class="div2"></div>
+            <div class="div3"></div>
+            <div class="div4"></div>
+            <div class="div5"></div>
+            <div class="div6"></div>
+          </section>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row my-4">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+              
+            <form action="/review" method="POST">
+           
+                <fieldset class="starability-basic">
+                    <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
+                        aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                </fieldset>
+                <div class="mb-3">
+                    <label class="form-label share" for="body ">REVIEW</label>
+                    <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+                    
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-light">ADD REVIEW</button>
+                </div>
+                
+            </form>
+        </div>
+              
+    </div>
+</div>
+    </div>
+
+<% } %> 
+</div>
+<% } %> 
+<script>
+const product = <%-JSON.stringify(user.orders)%>;
+const user=<%-JSON.stringify(user)%>;
+const otp=user.otp
+const amount = document.querySelector('.total-price')
+let sum=0;
+        for(let p of product){
+                sum+=p.price
+            }
+    
+amount.textContent=sum
+
+</script>
+
+<script src="/javascripts/order.js"></script>
