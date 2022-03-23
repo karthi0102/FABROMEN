@@ -129,11 +129,12 @@ app.post('/products',upload.array('image'),(req,res)=>{
     res.redirect('/home')
 })
 app.get('/buy',async(req,res)=>{
+    const user= await User.findById(req.user._id);
     if(!user.address){
         return res.redirect('/cart')
     }
     const order = new Order()
-    const user= await User.findById(req.user._id);
+   
     user.display=1;
     order.customer=req.user._id;
     await user.save();
