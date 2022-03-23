@@ -1,12 +1,14 @@
 <% if(success && success.length) {%>
     <script>
+     
+     
         let success = '<%= success%>';
-        swal("SNAKO", success, "success");
+        swal(`SNAKO`, success, "success");
       </script>
   <% } %>
   <% if(error && error.length) {%>
     <script>
       let error= '<%= error%>';
-      swal("SNAKO", error , "danger");
+      swal(`SNAKO`, error , "danger");
     </script>
   <% } %>

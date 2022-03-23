@@ -108,7 +108,7 @@ app.get('/products/:id',async(req,res)=>{
 app.get('/remove/:id',async(req,res)=>{
     const {id}=req.params
     const user =await User.findById(req.user._id)
-    const product= await Product.findById(id);
+    const product= await Product.findOneById(id);
     user.orders.remove(product);
     await user.save();
     req.flash("success",'Removed succesfully');
