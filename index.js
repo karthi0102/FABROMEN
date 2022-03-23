@@ -151,10 +151,9 @@ app.delete('/verify/:id/:orderId',async(req,res)=>{
     }else{
         req.flash("error",'Not verified');
     }
-  
     await user.save();
  
-    res.redirect('/home')
+    res.redirect('/delivery')
 })
 
 app.get('/login',(req,res)=>{
