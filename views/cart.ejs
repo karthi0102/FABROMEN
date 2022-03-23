@@ -45,9 +45,14 @@ a{
     
 </style>
 <link rel="stylesheet" href="/stylesheets/order.css">
-<a href="/home" class="cart display-6 text-center text-white"><i class="fa-solid fa-house"></i></a>
 
-<h1 class="text-center text-white my-5 display-3">SHOPPING CART</h1>
+<div class="row mt-5">
+    <h1 class="text-center text-white display-3">SHOPPING CART</h1>
+    <div class="col-5 offset-7 col-md-3 offset-9 col-lg-2 offset-lg-10 ">
+            <a href="/home" class="btn btn-light btn-lg p-3"><i class="fa-solid fa-house"></i></a>
+    </div>
+</div>
+
 <div class="orders">
 
     <%if(user.orders.length==0){  %> 
@@ -61,12 +66,9 @@ a{
     <% if(user.display==0){ %> 
         <div class="container">
            <% for(let order of user.orders){ %> 
-            
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="row">
-
-                    
                         <div class="col-md-4">
                             <img src="<%= order.image[0].url %>" height="250px" width="100%" alt="">
                         </div>
@@ -86,7 +88,6 @@ a{
                 </div>
                 </div>
            <% } %> 
-        
         <div class="card shadow">
             <div class="card-body">
                 <div class="row">

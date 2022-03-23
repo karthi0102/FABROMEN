@@ -1,16 +1,19 @@
 
 <% layout('layout/boilerplate.ejs') %>
 <link rel="stylesheet" href="/stylesheets/home.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 
 <div class="bdy">
     <div class="sec1">
+      
         <img src="/assets/home.png" class="img">
         <p class="brand">Snack &nbsp; & &nbsp; Break</p>
-        <a class="text-center display-6 cart text-white" href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-        <a class="cart display-6 text-center" href="/cart"><i class="fa cart1 fa-shopping-cart"></i><a>
-        
+        <div class="row">
+            <div class="col-5 offset-7 col-md-3 offset-9 col-lg-2 offset-lg-10 ">
+                <a href="/logout" class="btn btn-light btn-lg p-3 mx-3"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <a href="/cart" class="btn btn-light btn-lg p-3"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
         <p class="heading">Delicious<br>Snacks Is Waiting<br>for you</p>
         <img src="/assets/image (2).png" class="img1">
     </div>
@@ -58,4 +61,5 @@
 </div>
 </div>
 </div>
+
 

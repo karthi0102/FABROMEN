@@ -129,6 +129,9 @@ app.post('/products',upload.array('image'),(req,res)=>{
     res.redirect('/home')
 })
 app.get('/buy',async(req,res)=>{
+    if(!user.address){
+        return res.redirect('/cart')
+    }
     const order = new Order()
     const user= await User.findById(req.user._id);
     user.display=1;
@@ -152,7 +155,6 @@ app.delete('/verify/:id/:orderId',async(req,res)=>{
         req.flash("error",'Not verified');
     }
     await user.save();
- 
     res.redirect('/delivery')
 })
 
