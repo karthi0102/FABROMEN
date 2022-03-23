@@ -1,6 +1,21 @@
 
 <% layout('layout/boilerplate.ejs') %>
+<style>
+    @media (max-width:992px){
+        .product-grid3{
+            margin-left: 45px;
+        }
+        .prd{
+            margin-left: 35px;
+        }
+        .social{
+    display: inline-block;
+}
+    }
+</style>
 <link rel="stylesheet" href="/stylesheets/home.css">
+
+<div class="container">
 
 
 <div class="bdy">
@@ -22,7 +37,7 @@
         <p class="prd">We have Delicious Snack for this Evening</p><br>
         <div class="prdsub">
             <div class="container">
-                <div class="row d-flex justify-content-center my-5">
+                <div class="row d-flex justify-content-center mx-auto my-5">
                     <% for(let p of product){ %> 
                     <div class="col-md-3 col-sm-6 d-flex align-items-center">
                         <div class="product-grid3">
@@ -62,4 +77,4 @@
 </div>
 </div>
 
-
+</div>

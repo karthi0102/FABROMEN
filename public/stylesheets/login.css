@@ -16,7 +16,7 @@ main{
       justify-content: start;
    background-color:rgb(8, 8, 8);
   background-position: center center;
- object-fit: cover;
+ /* object-fit: cover; */
    
   }
 .bg-signup{
@@ -45,13 +45,13 @@ main{
   .sign-up {
       background: rgba(0,0,0,0.8);
     }
-    
+/*     
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       .sign-up {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
       }
-    }
+    } */
   
   .image2{
       position: fixed;
