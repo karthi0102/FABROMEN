@@ -108,7 +108,7 @@ app.get('/products/:id',async(req,res)=>{
 app.get('/remove/:id',async(req,res)=>{
     const {id}=req.params
     const user =await User.findById(req.user._id)
-    const product= await Product.findOneById(id);
+    const product= await Product.findById(id);
     user.orders.remove(product);
     await user.save();
     req.flash("success",'Removed succesfully');
@@ -130,17 +130,19 @@ app.post('/products',upload.array('image'),(req,res)=>{
 })
 app.get('/buy',async(req,res)=>{
     const user= await User.findById(req.user._id);
-    if(!user.address){
+    if(user.address){
+        const order = new Order()
+   
+        user.display=1;
+        order.customer=req.user._id;
+        await user.save();
+        await order.save();
+        req.flash("success",'Succesfully placed on order');
+        res.redirect('/home')
+    }else{
         return res.redirect('/cart')
     }
-    const order = new Order()
    
-    user.display=1;
-    order.customer=req.user._id;
-    await user.save();
-    await order.save();
-    req.flash("success",'Succesfully placed on order');
-    res.redirect('/home')
 })
 app.delete('/verify/:id/:orderId',async(req,res)=>{
     const {id,orderId}=req.params;
